@@ -1,0 +1,22 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: password
+  host: db
+  port: 3306
+
+development:
+  <<: *default
+  database: chat_system_development
+
+test:
+  <<: *default
+  database: chat_system_test
+
+production:
+  <<: *default
+  database: chat_system_production
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
